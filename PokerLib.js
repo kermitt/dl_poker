@@ -32,19 +32,18 @@ Deck.prototype = {
     	}
     	this.deck = this.shuffle( this.deck ); 
     },
-    shuffle : function( array ) {
-    	// Thanks Stackoverflow! I did not write it - cut paste : Profs to SOF!
-		var currentIndex = array.length, temporaryValue, randomIndex ;
+    shuffle : function( ary ) {
+		var currentIndex = ary.length, tmp, randIndex ;
 
 		while (0 !== currentIndex) {
-    		randomIndex = Math.floor(Math.random() * currentIndex);
+    		randIndex = Math.floor(Math.random() * currentIndex);
     		currentIndex -= 1;
 
-    		temporaryValue = array[currentIndex];
-    		array[currentIndex] = array[randomIndex];
-    		array[randomIndex] = temporaryValue;
+    		tmp = ary[currentIndex];
+    		ary[currentIndex] = ary[randIndex];
+    		ary[randIndex] = tmp;
   		}
-  		return array;
+  		return ary;
   	}
 }
 
