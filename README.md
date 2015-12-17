@@ -1,5 +1,5 @@
 Thinking about poker...<br>
-Currently output:<br> 
+Currently the output is:<br> 
 <br>
 Deck size 37<br>
 Flop is:<br>
