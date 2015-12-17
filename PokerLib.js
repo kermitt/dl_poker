@@ -50,6 +50,9 @@ Deck.prototype = {
 
 
 
+
+
+
 var Player = function( name, stack ) {
 	this.name = name;
 	this.stack = stack;
@@ -60,6 +63,53 @@ Player.prototype = {
 		this.cards.push( card );
 	} 
 }
+
+var HandOdds = function( cards_in_hand, flop, card_count_left_in_deck ) {
+	/// Given cards_in_hand + flop how many outs to the follows hands?
+	this.cards_in_hand = cards_in_hand;
+	this.flop = flop;
+	this.card_count_left_in_deck = card_count_left_in_deck;
+
+	this.odds = {};
+	this.odds["pair"] = this.pair();
+	this.odds["overCard"] = overCard();
+	this.odds["twoPair_to_Fullhouse"] = this.twoPair_to_Fullhouse();
+	this.odds["onePair_to_twoPair"] = this.onePair_to_twoPair();
+	this.odds["onePair_to_set"] = this.onePair_to_set();
+	this.odds["noPair_to_pair"] = this.noPair_to_pair();
+	this.odds["twoOverCards_to_overCardPair"] = this.twoOverCards_to_overCardPair();
+	this.odds["set_to_fullHouse"] = this.set_to_fullHouse();
+	this.odds["flush"] = this.flush();
+	this.odds["insideStraight_twoOverCards"] = this.insideStraight_twoOverCards();
+	this.odds["flush_and_insideStraight"] = this.flush_and_insideStraight();
+	this.odds["flush_and_openStraight"] = this.flush_and_openStraight();
+}
+HandOdds.prototype = {
+	//http://www.wikihow.com/Calculate-Pot-and-Hand-Odds-in-Limit-Hold-'Em-Poker
+	pair : function() {
+		//given 4spade and 4heart : 
+		//flop 6club 7diamond Tspade
+		//looking for 4diamond or 4club
+		//better return 2	
+		return -1
+	},
+	overCard : function() {
+		return -1
+	},
+	twoPair_to_Fullhouse : function() { 
+		return -1
+	},
+	onePair_to_twoPair : function(){ return -1; },
+	onePair_to_set : function(){ return -1; },
+	noPair_to_pair : function(){ return -1; },
+	twoOverCards_to_overCardPair : function(){ return -1; },
+	set_to_fullHouse : function(){ return -1; },
+	flush : function(){ return -1; },
+	insideStraight_twoOverCards : function(){ return -1; },
+	flush_and_insideStraight : function(){ return -1; },
+	flush_and_openStraight : function(){ return -1; },
+
+};
 try {
     module.exports.Deck = Deck;
     module.exports.Card = Card;
