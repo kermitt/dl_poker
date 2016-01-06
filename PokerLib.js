@@ -20,7 +20,7 @@ var Deck = function() {
 Deck.prototype = {
 	setup : function() { 
 		values = [2,3,4,5,6,7,8,9,10,11,12,13,14];
-		faces  = ["A","C","S","D"];
+		faces  = ["H","C","S","D"];
     	this.weights = [];
     	this.inputs = [];
 
